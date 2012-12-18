@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* Example for <table /> */
+
+body { line-height: 1.5; font-size:13px; font-family:sans-serif; background:#ccd90c; }
+
+
+table { font-size: 100%; margin: 10px; border-collapse: separate; border-spacing: 1px; border:2px solid #F0FF07; background:#111; }
+th { border-style: solid; border-width:1px; background: #777; border-color: #999 #666 #666 #999; color:#fff; font-weight:normal; text-align:left }
+thead th,
+thead td { text-align: center; background:#555; vertical-align: top; }
+tfoot th,
+tfoot td { text-align: center; background:#555; vertical-align: top; }
+td { background: #fff }
+tr:nth-child(even) td { background: #eee; }
+th, td { padding: 3px 6px; }

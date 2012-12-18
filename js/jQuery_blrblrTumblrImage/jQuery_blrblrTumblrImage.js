@@ -1,0 +1,11 @@
+/* jQuery_blrblrTumblrImage.js
+ *
+ * Varsion: 0.1.4
+ * PublishDate: 2012-03-03 23:30
+ * LastUpdate : 2012-04-06 18:40
+ * Copyright (c) 2012 ethertank.jp
+ * Licensed under the MIT
+ *
+ * jQuery required (tested on 1.7.1)
+ */
+;(function($,undefined){$.fn.blrblrTumblrImage=function(config){if(!config.username&&!config.domain){alert("blrblrTumblr : username or domain is required !");return false;}config=$.extend({start:"0",num:"10",interval:6000,speed:"slow",minHeight:"200px"},config);var jsonp,jsonURL,jsonParam="",wraps=$(this),interval=config.interval,speed=config.speed,minHeight=config.minHeight,htmlEsc=(function(map){var replaceStr=function(s){return map[s];};return function(str){return str.replace(/<|>|&|'|"/g,replaceStr);};})({"<":"&lt;",">":"&gt;","&":"&amp;","'":"&apos;",'"':"&quot;"});jsonURL=(config.username)?"http://"+config.username+".tumblr.com/api/read/json?type=photo":"http://"+config.domain+"/api/read/json?type=photo";delete config.username;delete config.domain;delete config.interval;delete config.speed;delete config.minHeight;$(config).each(function(i){jsonParam+=$.param(this);});if(jsonParam.length){jsonURL+="&"+jsonParam;}$.ajax({url:jsonURL,dataType:"jsonp",timeout:5000,error:function(jqXHR,textStatus,errorThrown){wraps.html("<p><small>error</small></p>");},success:function(jsonData){json=jsonData;parse(json);}});function parse(j){$.each(j.posts,function(i,p){wraps.each(function(){var $this=$(this);$this.css("min-height",minHeight).append($("<a>").css("display","inline-block").attr("href",htmlEsc(p.url)).append($("<img>").attr("src",htmlEsc(p["photo-url-250"]))).hide());$this.find("img").load(function(){$this.find("a:first-child").slideDown(speed);});});});initSlideShow();}function initSlideShow(){wraps.each(function(){var $this=$(this),timer;function slideShow(){var a=$this.find("a"),f=a.eq(0),s=a.eq(1);f.slideUp(speed,function(){s.slideDown(speed);f.appendTo($this);});}function setTimer(){timer=setInterval(slideShow,interval);}function clearTimer(){clearInterval(timer);}$this.find("a").hover(clearTimer,setTimer);setTimer();});}return this;};})(jQuery);

@@ -1,0 +1,63 @@
+﻿@charset "utf-8";
+html,body,div,iframe,h1,h2,p,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,small,strong,sub,sup,b,i,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,footer,header,section,summary,time,mark{margin:0;padding:0;border:0;vertical-align:baseline;background:transparent}
+article,aside,details,footer,header,hgroup,nav,section{display:block}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}
+input,select{vertical-align:middle}
+output{display:block}
+small{font-size:1em}
+html{background-color:#fff;color:#000;font-size:62.5%;background-repeat:repeat;-webkit-background-size:4px 4px;-moz-background-size:4px 4px;background-size:4px 4px}
+body{font:normal 140%/1.5 "Century Gothic","Hiragino Kaku Gothic Pro",メイリオ,Meiryo,"MSP Gothic",sans-serif}
+p{margin: 0;}
+ul{list-style:square;margin-left:1.4em}
+li{margin:10px auto}
+a{color:#2e86bd}
+img{vertical-align:bottom}
+th,
+td{padding:2px 4px;border:1px solid #000}
+th{background:#ccc}
+::-moz-selection{background:#fe0;color:#000}
+::selection{background:#fe0;color:#000}
+#container{width:300px;margin:0 auto;padding:60px 10px}
+#pageHeader{margin: 0 0 40px;text-align:right;border-right: 6px solid #2E86BD;padding: 10px;}
+h1{margin: 0;padding: 0;color:#2e86bd;font-size:2em;line-height:1;font-weight:700;letter-spacing:.025em;}
+#description{line-height:1}
+#content{position:relative}
+fieldset{margin:0 0 10px}
+form ul{list-style:none;margin:0;text-align:right;padding:20px 0}
+form buttons{text-align:right}
+#layout li{display:inline-block;margin:10px 10px 10px 0}
+#tableData li{margin:10px 10px 10px 0}
+label{margin:0 10px 0 0}
+input{text-shadow:none}
+input:-moz-placeholder{color:#aaa}
+input:-webkit-placeholder{color:#aaa}
+input::-webkit-input-placeholder,isindex::-webkit-input-placeholder,textarea::-webkit-input-placeholder{color:#aaa}
+input:placeholder,textarea:placeholder{color:#aaa}
+input[type="text"],
+input[type="number"],
+select,
+#output1,
+#output2{padding: 0;margin:0;border:4px solid #2e86bd}
+input[type="text"],
+input[type="number"],
+select{font-size: 1.5em;font-family:"小塚ゴシック Pro R",KozGoPro-regular,"Hiragino Kaku Gothic Pro",Arial,Helvetica,"Trebuchet MS",Verdana,"MSP Gothic",sans-serif}
+input[type="number"]{width:3em}
+input[type="text"]{width:160px}
+select,
+input[type="button"],
+input[type="reset"]{cursor:pointer;-o-appearance:none}
+.buttons{text-align:right}
+.btn{-webkit-appearance:none;font-family:"Century Gothic","Trebuchet MS",Arial,Helvetica,Jamrul,sans-serif;font-size:1em;text-align:center;text-transform:uppercase;text-shadow:-1px -1px 0 #000;width:136px;padding:7px 0;margin:0 0 0 10px;border:1px outset #fff!important;color:#fff;background-color:#555;background-image:-webkit-gradient(linear,left top,left bottom,from(transparent),color-stop(.5,transparent),color-stop(.5,rgba(0,0,0,.5)),to(rgba(0,0,0,.5)));background-image:-webkit-linear-gradient(top,rgba(0,0,0,.1) 50%,rgba(0,0,0,.375) 50%);background-image:-moz-linear-gradient(top,rgba(0,0,0,.1) 50%,rgba(0,0,0,.375) 50%);background-image:-o-linear-gradient(top,rgba(0,0,0,.1) 50%,rgba(0,0,0,.375) 50%);background-image:linear-gradient(top,rgba(0,0,0,.1) 50%,rgba(0,0,0,.375) 50%);-webkit-box-shadow:0 1px 2px 1px rgba(0,0,0,.5);-moz-box-shadow:0 1px 2px 1px rgba(0,0,0,.5);box-shadow:0 1px 2px 1px rgba(0,0,0,.5);-webkit-transition:background-color,-webkit-box-shadow,box-shadow 107ms ease-out;-moz-transition:background-color,-moz-box-shadow,box-shadow 107ms ease-out;-o-transition:background-color,box-shadow 107ms ease-out;transition:background-color,box-shadow 107ms ease-out}
+.btn:hover{background-color:#078Bf1}
+.btn:focus{background-color:#078b01;-webkit-box-shadow:0 1px 2px 1px rgba(0,0,0,.5),inset 0 0 10px 5px rgba(255,255,0,.5);-moz-box-shadow:0 1px 2px 1px rgba(0,0,0,.5),inset 0 0 10px 5px rgba(255,255,0,.5);box-shadow:0 1px 2px 1px rgba(0,0,0,.5),inset 0 0 10px 5px rgba(255,255,0,.5)}
+.btn:active{background-color:#880}
+.output_wrapper{margin:10px 0}
+#output1{resize:vertical;font-size:90%;display:block;width:98%;height:125px;min-height:75px}
+footer ul{list-style:none;margin:0 0 10px;padding:0}
+footer li{display:inline-block;vertical-align:middle;margin-right:5px}
+footer p{text-align:right}
+footer small a{text-transform:uppercase;text-decoration:none}
+#output2{width:98%;min-height:30px;background:#eee;overflow-x:auto}
+table{border-collapse:collapse;border-spacing:0;border:1px solid #000;background:#fff;margin:4px}
+caption{color:#000;font-size:.75em}
+#ad1{position:absolute;top:-20px;left:0}
