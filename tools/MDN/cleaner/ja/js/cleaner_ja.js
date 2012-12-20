@@ -39,7 +39,7 @@ $("#c").click(function() {
 	s = s.replace(/(categories#)i(nteractive)/g, '$1I$2');
 	s = s.replace(/(categories#)m(etadata)/g, '$1M$2');
 	s = s.replace(/(categories#)t(ransparent)/g, '$1T$2');
-    s = s.replace(/(document#)s(ectioning)/g, '$1S$2');
+	s = s.replace(/(document#)s(ectioning)/g, '$1S$2');
 
 
 	// title
@@ -53,10 +53,10 @@ $("#c").click(function() {
 	
 	
 	// 不要になったクラス (eval, deki-transform)
-	// URL 修正に伴い不要となった可能性の高いクラス(internal) ※必要であれば自動で付与される
-	s = s.replace(/ class=\"(?:eval|deki-transform|internal)\"/g, '');
+	// URL 修正に伴い不要となった可能性の高いクラス(internal/external) ※"external" は必要であれば自動で付与される
+	s = s.replace(/ class=\"(?:eval|deki-transform|internalexternal)\"/g, '');
 
-	
+
 	// id / name 属性の .C2.A2 を アンダースコアに
 	s = s.replace(/((?:id|name)=\".+?)\.C2\.A0(.+?\")?/g, '$1_$2');
 
@@ -89,7 +89,7 @@ $("#c").click(function() {
 
 	// 不正な出力になる、ブロックテンプレートしか内容を持たない p の div への置換。既にdivの場合マクロ前後の改行を削除
 	// パラメータ付きのものも対象にしている。パラメータが空のものは既に括弧を削除しているので、空の括弧付きのものは考慮していない。
-	s = s.replace(/<(?:p|div)>\s*(\{\{\s*((?:MDCProjectPages|html5article)Toc|(?:css(?:om|MozExtension)*|dom|xul)ref|(?:deprecated|non-standard|obsolete|(?:js|gecko|fx|tb|sm)_minversion|HTMLVersion|MobileOnly)_header|translationInProgress|翻訳中|outDated|SeeCompatTable|xpcomapi|draft|outdated|next|preview)(?:\(.+?\))*\s*\}\})\s*<\/(?:p|div)>/gmi,'<div>$1</div>');
+	s = s.replace(/<(?:p|div)>\s*(\{\{\s*((?:MDCProjectPages|html5article)Toc|(?:css(?:om|MozExtension)*|dom|xul)ref|(?:deprecated|non-standard|obsolete|(?:js|gecko|fx|tb|sm)_minversion|HTMLVersion|MobileOnly)_header|translationInProgress|翻訳中|outDated|SeeCompatTable|xpcomapi|draft|outdated|next|preview|CompatibilityTable)(?:\(.+?\))*\s*\}\})\s*<\/(?:p|div)>/gmi,'<div>$1</div>');
 
 
 	// テンプレートしか内容を持たないdiv（※この様なdivの内容は全てブロックテンプレートであるとする）が連続している場合、1divに纏める
@@ -109,23 +109,14 @@ $("#c").click(function() {
 	s = s.replace(/(<th>IE)&nbsp;(Phone<\/th>)/g,'$1 $2');
 	
 	
-
-	// s = s.replace(/(<pre.*)(?:&nbsp;)(.*<\/pre>)/gm, '$1 $2');
-
-	if($("#advanced input")[0].checked === true) {
-		// <span class="comment">xxx</span> を <!-- xxx --> に置換
-		// ※未完成（<span><span class="comment">XYG</span></span> で死ぬ）
-		s = s.replace(/<span class="comment">(.*)<\/span>?/g, '<!-- $1 -->');
-	}
-
-	s = $.trim(s); // トリミング
-	
+	s = s.replace(/(<pre[^>]*>[^&nbsp;]*)(&nbsp;)([^&nbsp;]*<\/pre>)/gm, '$1 $3');
 
 	
 	// <hn id="xxx"> を <hn id="xxx" name="xxx"> に置換。不完全。
 	s = s.replace(/(<h\d id="([^"<>]*)")>/gi, '$1 name="$2">');
-	
-	
+
+
+	// 見出しの自動翻訳
 	s = s.replace(/(<h\d[^>]*>)([^<]+)(<\/h\d>)/gi, function() {
 		var a = arguments;
 
@@ -151,8 +142,32 @@ $("#c").click(function() {
 			"See also" : "関連情報"
 		}[a[2]] || a[2]) + a[3]);
 	});
-		
 	
+
+	// リンクの自動翻訳。見出しではないため全て小文字にしてから処理している。
+	s = s.replace(/(<a[^>]*>)([^<]+)(<\/a>)/gi, function() {
+		var a = arguments;
+
+		return (a[1] + ({
+			"flow content" : "フローコンテンツ",
+			"phrasing content" : "フレージングコンテンツ",
+			"listed" : "リスト化",
+			"labelable": "ラベル付け可能",
+			"resettable" : "リセット可能",
+			"form-associated element" : "フォーム関連要素"
+		}[a[2].toLowerCase()] || a[2]) + a[3]);
+	});
+
+
+	// 不完全な置換
+	if($("#advanced input")[0].checked === true) {
+		// <span class="comment">xxx</span> を <!-- xxx --> に置換
+		// ※未完成（<span><span class="comment">XYG</span></span> で死ぬ）
+		s = s.replace(/<span class="comment">(.*)<\/span>?/g, '<!-- $1 -->');
+	}
+
+
+	s = $.trim(s); // トリミング
 	t.value = s; // 出力
 });
 

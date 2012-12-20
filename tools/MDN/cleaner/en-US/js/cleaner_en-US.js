@@ -48,8 +48,8 @@ $("#c").click(function() {
 	
 	
 	// 不要になったクラス (eval, deki-transform)
-	// URL 修正に伴い不要となった可能性の高いクラス(internal) ※必要であれば自動で付与される
-	s = s.replace(/ class=\"(?:eval|deki-transform|internal)\"/g, '');
+	// URL 修正に伴い不要となった可能性の高いクラス(internal/external) ※"external" は必要であれば自動で付与される
+	s = s.replace(/ class=\"(?:eval|deki-transform|internalexternal)\"/g, '');
 
 	
 	// id / name 属性の .C2.A2 を アンダースコアに
@@ -84,7 +84,7 @@ $("#c").click(function() {
 
 	// 不正な出力になる、ブロックテンプレートしか内容を持たない p の div への置換。既にdivの場合マクロ前後の改行を削除
 	// パラメータ付きのものも対象にしている。パラメータが空のものは既に括弧を削除しているので、空の括弧付きのものは考慮していない。
-	s = s.replace(/<(?:p|div)>\s*(\{\{\s*((?:MDCProjectPages|html5article)Toc|(?:css(?:om|MozExtension)*|dom|xul)ref|(?:deprecated|non-standard|obsolete|(?:js|gecko|fx|tb|sm)_minversion|HTMLVersion|MobileOnly)_header|translationInProgress|翻訳中|outDated|SeeCompatTable|xpcomapi|draft|outdated|next|preview)(?:\(.+?\))*\s*\}\})\s*<\/(?:p|div)>/gmi,'<div>$1</div>');
+	s = s.replace(/<(?:p|div)>\s*(\{\{\s*((?:MDCProjectPages|html5article)Toc|(?:css(?:om|MozExtension)*|dom|xul)ref|(?:deprecated|non-standard|obsolete|(?:js|gecko|fx|tb|sm)_minversion|HTMLVersion|MobileOnly)_header|translationInProgress|翻訳中|outDated|SeeCompatTable|xpcomapi|draft|outdated|next|preview|CompatibilityTable)(?:\(.+?\))*\s*\}\})\s*<\/(?:p|div)>/gmi,'<div>$1</div>');
 
 
 	// テンプレートしか内容を持たないdiv（※この様なdivの内容は全てブロックテンプレートであるとする）が連続している場合、1divに纏める
@@ -107,6 +107,8 @@ $("#c").click(function() {
 
 	// s = s.replace(/(<pre.*)(?:&nbsp;)(.*<\/pre>)/gm, '$1 $2');
 
+
+	// 不完全な置換
 	if($("#advanced input")[0].checked === true) {
 		// <span class="comment">xxx</span> を <!-- xxx --> に置換
 		// ※未完成（<span><span class="comment">XYG</span></span> で死ぬ）
