@@ -156,6 +156,33 @@ $("#c").click(function() {
 	});
 
 
+	// th / td の自動翻訳。
+	s = s.replace(/(<t(?:h|d)[^>]*>)([^<]+)(<\/t(?:h|d)>)/gi, function() {
+		var a = arguments;
+
+		return (a[1] + ({
+			"specification": "仕様書",
+			"status": "策定状況",
+			"comment": "コメント",
+			"feature" : "機能",
+			"basic support" : "基本サポート"
+		}[a[2].toLowerCase()] || a[2]) + a[3]);
+	});
+
+
+	// dfn の自動翻訳。
+	s = s.replace(/(<dfn[^>]*>)([^<]+)(<\/dfn>)/gi, function() {
+		var a = arguments;
+
+		return (a[1] + ({
+			"applies to": "適用対象",
+			"media": "メディア",
+			"animatable": "アニメーションの可否"
+		}[a[2].toLowerCase()] || a[2]) + a[3]);
+	});
+
+	s = s.replace(/(<strong>)Note:(<\/strong>)/gmi,'$1注記:$2');
+
 	// 不完全な置換
 	if($("#advanced input")[0].checked === true) {
 		// <span class="comment">xxx</span> を <!-- xxx --> に置換
