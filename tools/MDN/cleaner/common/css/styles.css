@@ -54,6 +54,8 @@ button:focus {
 	background-image:   linear-gradient(to bottom, #CBFBFF, #00A3FF, #0052FF);
 }
 
+.face { font-family: Meiryo, Sans-serif; }
+
 #hd1 {
 	margin: 0;
 	background-color: #000;

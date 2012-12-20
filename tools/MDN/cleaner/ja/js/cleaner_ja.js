@@ -119,6 +119,40 @@ $("#c").click(function() {
 	}
 
 	s = $.trim(s); // トリミング
+	
+
+	
+	// <hn id="xxx"> を <hn id="xxx" name="xxx"> に置換。不完全。
+	s = s.replace(/(<h\d id="([^"<>]*)")>/gi, '$1 name="$2">');
+	
+	
+	s = s.replace(/(<h\d[^>]*>)([^<]+)(<\/h\d>)/gi, function() {
+		var a = arguments;
+
+		return (a[1] + ({
+			"Summary" : "概要",
+			"Description" : "説明",
+			"Syntax" : "構文",
+			"Value": "値",
+			"Values" : "値",
+			"Attribute" : "属性",
+			"Attributes" : "属性",
+			"Property" : "プロパティ",
+			"Properties" : "プロパティ",
+			"Method" : "メソッド",
+			"Methods" : "メソッド",
+			"Example" : "例",
+			"Examples" : "例",
+			"Specification" : "仕様",
+			"Specifications" : "仕様",
+			"Browser compatibility" : "ブラウザ実装状況",
+			"Note" : "注記",
+			"Notes" : "注記",
+			"See also" : "関連情報"
+		}[a[2]] || a[2]) + a[3]);
+	});
+		
+	
 	t.value = s; // 出力
 });
 
