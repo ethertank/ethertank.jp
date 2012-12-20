@@ -107,9 +107,6 @@ $("#c").click(function() {
 
 	// <th>IE&nbsp;Phone</th>
 	s = s.replace(/(<th>IE)&nbsp;(Phone<\/th>)/g,'$1 $2');
-	
-	
-	s = s.replace(/(<pre[^>]*>[^&nbsp;]*)(&nbsp;)([^&nbsp;]*<\/pre>)/gm, '$1 $3');
 
 	
 	// <hn id="xxx"> を <hn id="xxx" name="xxx"> に置換。不完全。

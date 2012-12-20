@@ -102,10 +102,6 @@ $("#c").click(function() {
 
 	// <th>IE&nbsp;Phone</th>
 	s = s.replace(/(<th>IE)&nbsp;(Phone<\/th>)/g,'$1 $2');
-	
-	
-
-	// s = s.replace(/(<pre.*)(?:&nbsp;)(.*<\/pre>)/gm, '$1 $2');
 
 
 	// 不完全な置換
