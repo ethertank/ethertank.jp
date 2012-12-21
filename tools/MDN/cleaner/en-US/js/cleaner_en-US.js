@@ -49,7 +49,7 @@ $("#c").click(function() {
 	
 	// 不要になったクラス (eval, deki-transform)
 	// URL 修正に伴い不要となった可能性の高いクラス(internal/external) ※"external" は必要であれば自動で付与される
-	s = s.replace(/ class=\"(?:eval|deki-transform|internalexternal)\"/g, '');
+	s = s.replace(/ class=\"(eval|deki-transform|internal|external)\"/g, '');
 
 	
 	// id / name 属性の .C2.A2 を アンダースコアに

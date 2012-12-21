@@ -54,7 +54,7 @@ $("#c").click(function() {
 	
 	// 不要になったクラス (eval, deki-transform)
 	// URL 修正に伴い不要となった可能性の高いクラス(internal/external) ※"external" は必要であれば自動で付与される
-	s = s.replace(/ class=\"(?:eval|deki-transform|internalexternal)\"/g, '');
+	s = s.replace(/ class=\"(eval|deki-transform|internal|external)\"/g, '');
 
 
 	// id / name 属性の .C2.A2 を アンダースコアに
@@ -165,7 +165,10 @@ $("#c").click(function() {
 			"status": "策定状況",
 			"comment": "コメント",
 			"feature" : "機能",
-			"basic support" : "基本サポート"
+			"basic support" : "基本サポート",
+			"value" : "値",
+			"values" : "値",
+			"meaning" : "意味"
 		}[a[2].toLowerCase()] || a[2]) + a[3]);
 	});
 
