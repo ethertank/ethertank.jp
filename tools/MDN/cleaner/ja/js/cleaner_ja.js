@@ -69,8 +69,9 @@ $("#c").click(function() {
 	s = s.replace(/<p>(?:\s|&nbsp;)*<\/p>/g, '');
 
 
-	// p, dt, dd, li, hn の末尾スペース削除（先頭も要るか）
-	s = s.replace(/\s<\/(p|(?:dt|dd|li|h[1-6]))>/g, '</$1>');
+	// p, dt, dd, li, hn の先頭および末尾スペース削除
+	s = s.replace(/<(p|dt|dd|li|h[1-6])>(?:\s|&nbsp;)*/g, '<$1>');
+	s = s.replace(/(?:\s|&nbsp;)*<\/(p|dt|dd|li|h[1-6])>/g, '</$1>');
 	
 	
 	// headline
