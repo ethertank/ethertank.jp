@@ -101,7 +101,7 @@ $("#c").click(function() {
 
 	// 画像パスの修正（要検証） https://bugzilla.mozilla.org/show_bug.cgi?id=795841
 	s = s.replace(/fileid=\"(.*)\"\s*src=\"File:en\/Media_Gallery\/(.*\"?)/g, 'src="/files/$1/$2');
-	s = s.replace(/fileid=\"(.*)\"\s*src=\"File:ja\/Media_Gallery\/(.*\"?)/g, 'src="/files/$1/$2');
+
 
 	// 空の div.noinclude を削除
 	s = s.replace(/<div class=\"noinclude\">(?:\s|\b|&nbsp;)*<\/div>?/gm, '');
