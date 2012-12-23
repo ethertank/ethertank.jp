@@ -44,6 +44,7 @@ $("#c").click(function() {
 
 	// title
 	s = s.replace(/Core JavaScript 1\.5/g, 'JavaScript/');
+	s = s.replace(/title=\"\/*en(-US)*\/(docs\/)*/gi, 'title="');
 	s = s.replace(/title=\"\/*ja\/(docs\/)*/gi, 'title="');
 
 
@@ -90,7 +91,7 @@ $("#c").click(function() {
 
 	// 不正な出力になる、ブロックテンプレートしか内容を持たない p の div への置換。既にdivの場合マクロ前後の改行を削除
 	// パラメータ付きのものも対象にしている。パラメータが空のものは既に括弧を削除しているので、空の括弧付きのものは考慮していない。
-	s = s.replace(/<(?:p|div)>\s*(\{\{\s*((?:MDCProjectPages|html5article)Toc|(?:css(?:om|MozExtension)*|dom|xul)ref|(?:deprecated|non-standard|obsolete|(?:js|gecko|fx|tb|sm)_minversion|HTMLVersion|MobileOnly)_header|translationInProgress|翻訳中|outDated|SeeCompatTable|xpcomapi|draft|outdated|next|preview|CompatibilityTable)(?:\(.+?\))*\s*\}\})\s*<\/(?:p|div)>/gmi,'<div>$1</div>');
+	s = s.replace(/<(?:p|div)>\s*(\{\{\s*((?:MDCProjectPages|html5article)Toc|(?:css(?:om|MozExtension)*|dom|xul)ref|(?:deprecated|non-standard|obsolete|(?:js|gecko|fx|tb|sm)_minversion|HTMLVersion|MobileOnly)_header|translationInProgress|翻訳中|outDated|SeeCompatTable|xpcomapi|draft|outdated|next|preview|CompatibilityTable|DOMAttributeMethods)(?:\(.+?\))*\s*\}\})\s*<\/(?:p|div)>/gmi,'<div>$1</div>');
 
 
 	// テンプレートしか内容を持たないdiv（※この様なdivの内容は全てブロックテンプレートであるとする）が連続している場合、1divに纏める
@@ -108,6 +109,10 @@ $("#c").click(function() {
 
 	// <th>IE&nbsp;Phone</th>
 	s = s.replace(/(<th>IE)&nbsp;(Phone<\/th>)/g,'$1 $2');
+	
+	
+	// <p>DOM Level 0. Not part of specification.</p>
+	s = s.replace(/(<p>)DOM Level 0. Not part of specification.(<\/p>)/gi,'$1{{dom0}}$2');
 
 	
 	// <hn id="xxx"> を <hn id="xxx" name="xxx"> に置換。不完全。
@@ -137,7 +142,8 @@ $("#c").click(function() {
 			"Browser compatibility" : "ブラウザ実装状況",
 			"Note" : "注記",
 			"Notes" : "注記",
-			"See also" : "関連情報"
+			"See also" : "関連情報",
+			"Constants": "定数"
 		}[a[2]] || a[2]) + a[3]);
 	});
 	
@@ -169,7 +175,10 @@ $("#c").click(function() {
 			"basic support" : "基本サポート",
 			"value" : "値",
 			"values" : "値",
-			"meaning" : "意味"
+			"meaning" : "意味",
+			"name": "名称",
+			"return": "戻り値",
+			"availability": "可用性"
 		}[a[2].toLowerCase()] || a[2]) + a[3]);
 	});
 
@@ -193,6 +202,8 @@ $("#c").click(function() {
 		// ※未完成（<span><span class="comment">XYG</span></span> で死ぬ）
 		s = s.replace(/<span class="comment">(.*)<\/span>?/g, '<!-- $1 -->');
 	}
+
+	// with文　for文　while文
 
 
 	s = $.trim(s); // トリミング
