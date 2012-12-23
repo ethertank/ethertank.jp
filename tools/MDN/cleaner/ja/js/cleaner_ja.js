@@ -127,6 +127,8 @@ $("#c").click(function() {
 			"Summary" : "概要",
 			"Description" : "説明",
 			"Syntax" : "構文",
+			"Parameter" : "引数",
+			"Parameters" : "引数",
 			"Value": "値",
 			"Values" : "値",
 			"Attribute" : "属性",
@@ -178,7 +180,9 @@ $("#c").click(function() {
 			"meaning" : "意味",
 			"name": "名称",
 			"return": "戻り値",
-			"availability": "可用性"
+			"availability": "可用性",
+			"implemented in" : "実装されたバージョン",
+			"ecmascript edition" : "ECMAScript エディション"
 		}[a[2].toLowerCase()] || a[2]) + a[3]);
 	});
 
