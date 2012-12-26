@@ -91,7 +91,7 @@ $("#c").click(function() {
 
 	// 不正な出力になる、ブロックテンプレートしか内容を持たない p の div への置換。既にdivの場合マクロ前後の改行を削除
 	// パラメータ付きのものも対象にしている。パラメータが空のものは既に括弧を削除しているので、空の括弧付きのものは考慮していない。
-	s = s.replace(/<(?:p|div)>\s*(\{\{\s*((?:MDCProjectPages|html5article)Toc|(?:css(?:om|MozExtension)*|dom|xul)ref|(?:deprecated|non-standard|obsolete|(?:js|gecko|fx|tb|sm)_minversion|HTMLVersion|MobileOnly)_header|translationInProgress|翻訳中|outDated|SeeCompatTable|xpcomapi|draft|outdated|next|preview|CompatibilityTable|DOMAttributeMethods)(?:\(.+?\))*\s*\}\})\s*<\/(?:p|div)>/gmi,'<div>$1</div>');
+	s = s.replace(/<(?:p|div)>\s*(\{\{\s*((?:MDCProjectPages|html5article)Toc|(?:css(?:om|MozExtension)*|dom|xul)ref|(?:deprecated|non-standard|obsolete|(?:js|gecko|fx|tb|sm)_minversion|HTMLVersion|MobileOnly)_header|translationInProgress|翻訳中|outDated|SeeCompatTable|xpcomapi|draft|outdated|next|preview|CompatibilityTable|DOMAttributeMethods|autoPreviousNext)(?:\(.+?\))*\s*\}\})\s*<\/(?:p|div)>/gmi,'<div>$1</div>');
 
 
 	// テンプレートしか内容を持たないdiv（※この様なdivの内容は全てブロックテンプレートであるとする）が連続している場合、1divに纏める
@@ -199,6 +199,21 @@ $("#c").click(function() {
 	});
 
 	s = s.replace(/(<strong>)Note:(<\/strong>)/gmi,'$1注記:$2');
+
+
+	// 訳語統一
+	s = s.replace(/(ブラウザ)ー/gm, '$1'); // ※公式が「ブラウザ」。訳語決定会の残骸が邪魔…。 http://www.mozilla.jp/firefox/
+	s = s.replace(/(インタ)(?:ー*)(フ[ェァ])(?:ー|イ)(ス)/gm, '$1フェー$3');
+	s = s.replace(/(ハード|ソフト)ウエア/gm, '$1ウェア');
+	s = s.replace(/(コミュニティ|タイポグラフィ|アクセシビリティ|ユーザビリティ|セキュリティ|ユーザ|プロパティ|データ)ー/gm, '$1');
+	s = s.replace(/(スマート|ヘッド|フィーチャー)ホン/gm, '$1フォン');
+	s = s.replace(/ターゲッティング/gm, 'ターゲティング');
+	
+	
+	// 確実にタイプミスであるもの
+	s = s.replace(/をを/gm, 'を');
+	s = s.replace(/メッセエージ/gm, 'メッセージ');
+
 
 	// 不完全な置換
 	if($("#advanced input")[0].checked === true) {
