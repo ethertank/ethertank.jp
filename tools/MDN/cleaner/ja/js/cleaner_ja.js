@@ -114,7 +114,11 @@ $("#c").click(function() {
 	// <p>DOM Level 0. Not part of specification.</p>
 	s = s.replace(/(<p>)DOM Level 0. Not part of specification.(<\/p>)/gi,'$1{{dom0}}$2');
 
-	
+
+	// 英文スペルミス修正
+	s = s.replace(/Initial defination/g, 'Initial definition');
+
+
 	// <hn id="xxx"> を <hn id="xxx" name="xxx"> に置換。不完全。
 	s = s.replace(/(<h\d id="([^"<>]*)")>/gi, '$1 name="$2">');
 
@@ -170,6 +174,7 @@ $("#c").click(function() {
 		var a = arguments;
 
 		return (a[1] + ({
+			"action": "動作",
 			"specification": "仕様書",
 			"status": "策定状況",
 			"comment": "コメント",

@@ -109,6 +109,10 @@ $("#c").click(function() {
 	s = s.replace(/(<p>)DOM Level 0. Not part of specification.(<\/p>)/gi,'$1{{dom0}}$2');
 
 
+	// 英文スペルミス修正
+	s = s.replace(/Initial defination/g, 'Initial definition');
+
+
 	// 不完全な置換
 	if($("#advanced input")[0].checked === true) {
 		// <span class="comment">xxx</span> を <!-- xxx --> に置換
