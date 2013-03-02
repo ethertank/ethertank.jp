@@ -1,4 +1,4 @@
-﻿#ethertank.jp :fish:
+﻿#ethertank.jp :fire: :droplet: :boat: :cake:
 
 ethertank.jp 及びそのサブドメイン内の一部のページの管理用リポジトリ
 
