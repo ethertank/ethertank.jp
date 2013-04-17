@@ -153,7 +153,8 @@ $("#c").click(function() {
 			"Documentation" : "ドキュメンテーション",
 			"Community" : "コミュニティ",
 			"Tools" : "ツール",
-			"Related Topics" : "関連トピック"
+			"Related Topics" : "関連トピック",
+			"Class overview" : "クラスの概要"
 		}[a[2]] || a[2]) + a[3]);
 	});
 	
