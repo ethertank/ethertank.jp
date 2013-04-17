@@ -149,7 +149,11 @@ $("#c").click(function() {
 			"Note" : "注記",
 			"Notes" : "注記",
 			"See also" : "関連情報",
-			"Constants": "定数"
+			"Constants": "定数",
+			"Documentation" : "ドキュメンテーション",
+			"Community" : "コミュニティ",
+			"Tools" : "ツール",
+			"Related Topics" : "関連トピック"
 		}[a[2]] || a[2]) + a[3]);
 	});
 	
