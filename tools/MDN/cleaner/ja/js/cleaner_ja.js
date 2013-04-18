@@ -131,7 +131,7 @@ $("#c").click(function() {
 
 		return (a[1] + ({
 			"Summary" : "概要",
-			"Introduction", "イントロダクション",
+			"Introduction": "イントロダクション",
 			"Description" : "説明",
 			"Syntax" : "構文",
 			"Parameter" : "引数",
