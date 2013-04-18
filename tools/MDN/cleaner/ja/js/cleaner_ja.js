@@ -29,6 +29,7 @@ $("#c").click(function() {
 
 	s = s.replace(/Core_JavaScript_1\.5_/g, 'JavaScript/');    
 
+	s = s.replace(/XUL_School/g, 'XUL\/School_tutorial');    
 
 	// anchor
 	s = s.replace(/(categories#)f(low|orm)/g, '$1F$2');
@@ -46,6 +47,7 @@ $("#c").click(function() {
 	s = s.replace(/Core JavaScript 1\.5/g, 'JavaScript/');
 	s = s.replace(/title=\"\/*en(-US)*\/(docs\/)*/gi, 'title="');
 	s = s.replace(/title=\"\/*ja\/(docs\/)*/gi, 'title="');
+	s = s.replace(/title=\"XUL School/g, 'XUL\/School_tutorial');    
 
 
 	// id, name
@@ -91,7 +93,7 @@ $("#c").click(function() {
 
 	// 不正な出力になる、ブロックテンプレートしか内容を持たない p の div への置換。既にdivの場合マクロ前後の改行を削除
 	// パラメータ付きのものも対象にしている。パラメータが空のものは既に括弧を削除しているので、空の括弧付きのものは考慮していない。
-	s = s.replace(/<(?:p|div)>\s*(\{\{\s*((?:MDCProjectPages|html5article|Preferences_System_)Toc|(?:css(?:om|MozExtension)*|dom|xul)ref|(?:deprecated|non-standard|obsolete|(?:js|gecko|fx|tb|sm)_minversion|HTMLVersion|MobileOnly)_header|translationInProgress|翻訳中|outDated|SeeCompatTable|xpcomapi|draft|outdated|next|preview|CompatibilityTable|DOMAttributeMethods|autoPreviousNext)(?:\(.+?\))*\s*\}\})\s*<\/(?:p|div)>/gmi,'<div>$1</div>');
+	s = s.replace(/<(?:p|div)>\s*(\{\{\s*((?:CSSTutorial|MDCProjectPages|html5article|Preferences_System_)Toc|(?:css(?:om|MozExtension)*|dom|xul)ref|(?:deprecated|non-standard|obsolete|(?:js|gecko|fx|tb|sm)_minversion|HTMLVersion|MobileOnly)_header|translationInProgress|翻訳中|outDated|SeeCompatTable|xpcomapi|draft|outdated|next|preview|CompatibilityTable|DOMAttributeMethods|autoPreviousNext)(?:\(.+?\))*\s*\}\})\s*<\/(?:p|div)>/gmi,'<div>$1</div>');
 
 
 	// テンプレートしか内容を持たないdiv（※この様なdivの内容は全てブロックテンプレートであるとする）が連続している場合、1divに纏める
@@ -129,6 +131,7 @@ $("#c").click(function() {
 
 		return (a[1] + ({
 			"Summary" : "概要",
+			"Introduction", "イントロダクション",
 			"Description" : "説明",
 			"Syntax" : "構文",
 			"Parameter" : "引数",
@@ -154,7 +157,9 @@ $("#c").click(function() {
 			"Community" : "コミュニティ",
 			"Tools" : "ツール",
 			"Related Topics" : "関連トピック",
-			"Class overview" : "クラスの概要"
+			"Class overview" : "クラスの概要",
+			"Object overview": "オブジェクトの概要",
+			"Method overview": "メソッドの概要"
 		}[a[2]] || a[2]) + a[3]);
 	});
 	
