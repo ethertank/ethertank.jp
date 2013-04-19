@@ -41,7 +41,7 @@ $("#c").click(function() {
 	// title
 	s = s.replace(/Core JavaScript 1\.5/g, 'JavaScript/');
 	s = s.replace(/title=\"\/*en(-US)*\/(docs\/)*/gi, 'title="');
-	s = s.replace(/title=\"XUL School/g, 'XUL\/School_tutorial');    
+	s = s.replace(/title=\"XUL School/g, 'title="XUL\/School_tutorial');    
 
 
 	// id, name
