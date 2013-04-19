@@ -93,7 +93,7 @@ $("#c").click(function() {
 
 	// 不正な出力になる、ブロックテンプレートしか内容を持たない p の div への置換。既にdivの場合マクロ前後の改行を削除
 	// パラメータ付きのものも対象にしている。パラメータが空のものは既に括弧を削除しているので、空の括弧付きのものは考慮していない。
-	s = s.replace(/<(?:p|div)>\s*(\{\{\s*((?:CSSTutorial|MDCProjectPages|html5article|Preferences_System_)Toc|(?:css(?:om|MozExtension)*|dom|xul)ref|(?:deprecated|non-standard|obsolete|(?:js|gecko|fx|tb|sm)_minversion|HTMLVersion|MobileOnly)_header|translationInProgress|翻訳中|outDated|SeeCompatTable|xpcomapi|draft|outdated|next|preview|CompatibilityTable|DOMAttributeMethods|autoPreviousNext)(?:\(.+?\))*\s*\}\})\s*<\/(?:p|div)>/gmi,'<div>$1</div>');
+	s = s.replace(/<(?:p|div)>\s*(\{\{\s*((?:CSSTutorial|MDCProjectPages|html5article|Preferences_System_)Toc|(?:css(?:om|MozExtension)*|dom|xul)ref|(?:deprecated|non-standard|obsolete|(?:js|gecko|fx|tb|sm)_minversion|HTMLVersion|MobileOnly)_header|ListSubpages|translationInProgress|翻訳中|outDated|SeeCompatTable|xpcomapi|draft|outdated|next|preview|CompatibilityTable|DOMAttributeMethods|autoPreviousNext)(?:\(.+?\))*\s*\}\})\s*<\/(?:p|div)>/gmi,'<div>$1</div>');
 
 
 	// テンプレートしか内容を持たないdiv（※この様なdivの内容は全てブロックテンプレートであるとする）が連続している場合、1divに纏める
@@ -133,10 +133,12 @@ $("#c").click(function() {
 			"Attribute" : "属性",
 			"Attributes" : "属性",
 			"Browser compatibility" : "ブラウザ実装状況",
+			"Categories": "カテゴリ",
 			"Class overview" : "クラスの概要",
 			"Community" : "コミュニティ",
 			"Compatibility" : "互換性",
 			"Constants": "定数",
+			"Constructor": "コンストラクタ",
 			"Description" : "説明",
 			"Documentation" : "ドキュメンテーション",
 			"Example" : "例",
@@ -151,19 +153,24 @@ $("#c").click(function() {
 			"Note" : "注記",
 			"Notes" : "注記",
 			"Object overview": "オブジェクトの概要",
+			"Other": "その他",
 			"Opera notes": "Opera に関する注記",
-			"Property" : "プロパティ",
 			"Parameter" : "引数",
 			"Parameters" : "引数",
+			"Property" : "プロパティ",
 			"Properties" : "プロパティ",
 			"Return value": "戻り値",
 			"Related Topics" : "関連トピック",
+			"Selectors": "セレクタ",
 			"Summary" : "概要",
 			"Syntax" : "構文",
 			"Specification" : "仕様",
 			"Specifications" : "仕様",
 			"See also" : "関連情報",
 			"Tools" : "ツール",
+			"Tutorial": "チュートリアル",
+			"Tutorials": "チュートリアル",
+			"Usage context": "使用可能な場所",
 			"Value": "値",
 			"Values" : "値",
 			"Webkit &amp; Trident (IE)": "Webkit 及び Trident (IE)"
@@ -235,6 +242,8 @@ $("#c").click(function() {
 	// 確実にタイプミスであるもの
 	s = s.replace(/をを/gm, 'を');
 	s = s.replace(/メッセエージ/gm, 'メッセージ');
+	s = s.replace(/イベンと/gm, 'イベント');
+	s = s.replace(/スプリクト/gm, 'スクリプト');
 
 
 	// 不完全な置換
