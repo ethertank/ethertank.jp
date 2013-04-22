@@ -53,6 +53,22 @@ $("#c").click(function() {
 	// id, name
 	s = s.replace(/\"Browser_Compatibility\"/g, '"Browser_compatibility"');
 	s = s.replace(/\"See_Also\"/g, '"See_also"');
+
+	// id, name (ja)
+	s = s.replace(/\"\.E6\.A6\.82\.E8\.A6\.81\"/g, '"Summary"'); // 概要
+	s = s.replace(/\"\.E8\.AA\.AC\.E6\.98\.8E\"/g, '"Description"'); // 説明
+
+	s = s.replace(/\"\.E3\.83\.96\.E3\.83\.A9\.E3\.82\.A6\.E3\.82\.B6\.E4\.BA\.92\.E6\.8F\.9B\.E6\.80\.A7\"/g, '"Browser_compatibility"'); // ブラウザ互換性
+	s = s.replace(/\"\.E3\.83\.96\.E3\.83\.A9\.E3\.82\.A6\.E3\.82\.B6\.E3\.81\.AE\.E4\.BA\.92\.E6\.8F\.9B\.E6\.80\.A7\"/g, '"Browser_compatibility"'); //ブラウザの互換性
+	s = s.replace(/\"\.E3\.83\.96\.E3\.83\.A9\.E3\.82\.A6\.E3\.82\.B6\.E6\.AF\.8E\.E3\.81\.AE\.E4\.BA\.92\.E6\.8F\.9B\.E6\.80\.A7\"/g, '"Browser_compatibility"'); //ブラウザ毎の互換性
+	s = s.replace(/\"\.E3\.83\.96\.E3\.83\.A9\.E3\.82\.A6\.E3\.82\.B6\.E5\.AE\.9F\.E8\.A3\.85\.E7\.8A\.B6\.E6\.B3\.81\"/g, '"Browser_compatibility"'); // ブラウザ実装状況
+	s = s.replace(/\"\.E3\.83\.96\.E3\.83\.A9\.E3\.82\.A6\.E3\.82\.B6\.E3\.81\.AE\.E5\.AE\.9F\.E8\.A3\.85\.E7\.8A\.B6\.E6\.B3\.81\"/g, '"Browser_compatibility"'); // ブラウザの実装状況
+
+
+	s = s.replace(/\"\.E5\.8F\.82\.E7\.85\.A7\"/g, '"See_also"'); //参照
+	s = s.replace(/\"\.E5\.8F\.82\.E8\.80\.83\"/g, '"See_also"'); //参考
+	s = s.replace(/\"\.E5\.8F\.82\.E8\.80\.83\.E6\.83\.85\.E5\.A0\.B1\"/g, '"See_also"'); // 参考情報
+	s = s.replace(/\"\.E9\.96\.A2\.E9\.80\.A3\.E6\.83\.85\.E5\.A0\.B1\"/g, '"See_also"'); // 関連情報	
 	
 	
 	// 不要になったクラス (eval, deki-transform)
