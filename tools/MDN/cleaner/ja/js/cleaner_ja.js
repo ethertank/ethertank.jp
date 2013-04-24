@@ -226,19 +226,21 @@ $("#c").click(function() {
 
 		return (a[1] + ({
 			"action": "動作",
-			"specification": "仕様書",
-			"status": "策定状況",
-			"comment": "コメント",
-			"feature" : "機能",
+			"availability": "可用性",
 			"basic support" : "基本サポート",
-			"value" : "値",
-			"values" : "値",
+			"comment": "コメント",
+			"description" : "説明",
+			"ecmascript edition" : "ECMAScript エディション",
+			"feature" : "機能",
+			"implemented in" : "実装されたバージョン",
 			"meaning" : "意味",
 			"name": "名称",
 			"return": "戻り値",
-			"availability": "可用性",
-			"implemented in" : "実装されたバージョン",
-			"ecmascript edition" : "ECMAScript エディション"
+			"shared module" : "共有モジュール",
+			"specification": "仕様書",
+			"status": "策定状況",
+			"value" : "値",
+			"values" : "値"
 		}[a[2].toLowerCase()] || a[2]) + a[3]);
 	});
 
