@@ -225,7 +225,8 @@ $("#c").click(function() {
 		var a = arguments;
 
 		return (a[1] + ({
-			"action": "動作",
+			"action" : "動作",
+			"attribute" : "属性",
 			"availability": "可用性",
 			"basic support" : "基本サポート",
 			"comment": "コメント",
@@ -239,6 +240,7 @@ $("#c").click(function() {
 			"shared module" : "共有モジュール",
 			"specification": "仕様書",
 			"status": "策定状況",
+			"type" : "型",
 			"value" : "値",
 			"values" : "値"
 		}[a[2].toLowerCase()] || a[2]) + a[3]);
