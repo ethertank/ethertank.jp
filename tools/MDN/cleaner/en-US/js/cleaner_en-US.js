@@ -59,26 +59,26 @@ $("#c").click(function() {
 
 
 	// テンプレートの詰め
-	s = s.replace(/\{\{ /g, '{{').replace(/ \}\}/g, '}}').replace(/\((("|'){2})*\)\}\}/g, '}}');
+	s = s.replace(/\{\{ /gm, '{{').replace(/ \}\}/gm, '}}').replace(/\((("|'){2})*\)\}\}/gm, '}}');
 
 
 	// 空 p
-	s = s.replace(/<p>(?:\s|&nbsp;)*<\/p>/g, '');
+	s = s.replace(/<p>(?:\s|&nbsp;)*<\/p>/gm, '');
 
 
 	// p, dt, dd, li, hn の先頭および末尾スペース削除
-	s = s.replace(/<(p|dt|dd|li|h[1-6])>(?:\s|&nbsp;)*/g, '<$1>');
-	s = s.replace(/(?:\s|&nbsp;)*<\/(p|dt|dd|li|h[1-6])>/g, '</$1>');
+	s = s.replace(/<(p|dt|dd|li|h[1-6])>(?:\s|&nbsp;)*/gm, '<$1>');
+	s = s.replace(/(?:\s|&nbsp;)*<\/(p|dt|dd|li|h[1-6])>/gm, '</$1>');
 
 	
 	// headline
-	s = s.replace(/(See)(?:\s|&nbsp;)A(lso<\/h)/g,'$1 a$2');
-	s = s.replace(/(Browser)(?:\s|&nbsp;)C(ompatibility<\/h)/g,'$1 c$2');
+	s = s.replace(/(See)(?:\s|&nbsp;)A(lso<\/h)/gmi,'$1 a$2');
+	s = s.replace(/(Browser)(?:\s|&nbsp;)C(ompatibility<\/h)/gmi,'$1 c$2');
 
 	
 	// よくある誤字の修正 ( http://jsfiddle.net/ethertank/eK6a2/ )
-	s = s.replace(/Mozil*a/g, 'Mozilla');
-	s = s.replace(/F(?:(?:ir|ie)|(?:ier)|(?:ore))(?:(?:g|f)*o*x)/g, 'Firefox');
+	s = s.replace(/Mozil*a/gm, 'Mozilla');
+	s = s.replace(/F(?:(?:ir|ie)|(?:ier)|(?:ore))(?:(?:g|f)*o*x)/gmi, 'Firefox');
 
 
 	// 古い言語間リンク用テンプレートのマクロの "<p>{{" と "}}</p>" を "<!--" と "-->" に置換
@@ -104,7 +104,7 @@ $("#c").click(function() {
 
 
 	// <th>IE&nbsp;Phone</th>
-	s = s.replace(/(<th>IE)&nbsp;(Phone<\/th>)/g,'$1 $2');
+	s = s.replace(/(<th>IE)&nbsp;(Phone<\/th>)/gi,'$1 $2');
 
 
 	// <p>DOM Level 0. Not part of specification.</p>
@@ -112,7 +112,8 @@ $("#c").click(function() {
 
 
 	// 英文スペルミス修正
-	s = s.replace(/Initial defination/g, 'Initial definition');
+	s = s.replace(/Initial defination/gmi, 'Initial definition');
+	s = s.replace(/(compatibil)(ty)/gmi, '$1i$2');
 
 
 	// 不完全な置換

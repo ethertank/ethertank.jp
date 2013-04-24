@@ -64,6 +64,10 @@ $("#c").click(function() {
 	s = s.replace(/\"\.E3\.83\.96\.E3\.83\.A9\.E3\.82\.A6\.E3\.82\.B6\.E5\.AE\.9F\.E8\.A3\.85\.E7\.8A\.B6\.E6\.B3\.81\"/g, '"Browser_compatibility"'); // ブラウザ実装状況
 	s = s.replace(/\"\.E3\.83\.96\.E3\.83\.A9\.E3\.82\.A6\.E3\.82\.B6\.E3\.81\.AE\.E5\.AE\.9F\.E8\.A3\.85\.E7\.8A\.B6\.E6\.B3\.81\"/g, '"Browser_compatibility"'); // ブラウザの実装状況
 
+	s = s.replace(/\"\.E5\.80\.A4\"/g, '"Values"'); // 値
+
+	s = s.replace(/\"\.E4\.BB\.95\.E6\.A7\.98\.E6\.9B\.B8\"/g, '"Specifications"'); // 仕様書
+	
 
 	s = s.replace(/\"\.E5\.8F\.82\.E7\.85\.A7\"/g, '"See_also"'); //参照
 	s = s.replace(/\"\.E5\.8F\.82\.E8\.80\.83\"/g, '"See_also"'); //参考
@@ -81,21 +85,21 @@ $("#c").click(function() {
 
 
 	// テンプレートの詰め
-	s = s.replace(/\{\{ /g, '{{').replace(/ \}\}/g, '}}').replace(/\((("|'){2})*\)\}\}/g, '}}');
+	s = s.replace(/\{\{ /mg, '{{').replace(/ \}\}/gm, '}}').replace(/\((("|'){2})*\)\}\}/gm, '}}');
 
 
 	// 空 p
-	s = s.replace(/<p>(?:\s|&nbsp;)*<\/p>/g, '');
+	s = s.replace(/<p>(?:\s|&nbsp;)*<\/p>/gm, '');
 
 
 	// p, dt, dd, li, hn の先頭および末尾スペース削除
-	s = s.replace(/<(p|dt|dd|li|h[1-6])>(?:\s|&nbsp;)*/g, '<$1>');
-	s = s.replace(/(?:\s|&nbsp;)*<\/(p|dt|dd|li|h[1-6])>/g, '</$1>');
+	s = s.replace(/<(p|dt|dd|li|h[1-6])>(?:\s|&nbsp;)*/gm, '<$1>');
+	s = s.replace(/(?:\s|&nbsp;)*<\/(p|dt|dd|li|h[1-6])>/gm, '</$1>');
 	
 	
 	// headline
-	s = s.replace(/(See)(?:\s|&nbsp;)A(lso<\/h)/g,'$1 a$2');
-	s = s.replace(/(Browser)(?:\s|&nbsp;)C(ompatibility<\/h)/g,'$1 c$2');
+	s = s.replace(/(See)(?:\s|&nbsp;)A(lso<\/h)/gmi,'$1 a$2');
+	s = s.replace(/(Browser)(?:\s|&nbsp;)C(ompatibility<\/h)/gmi,'$1 c$2');
 
 	
 	// よくある誤字の修正 ( http://jsfiddle.net/ethertank/eK6a2/ )
@@ -126,7 +130,7 @@ $("#c").click(function() {
 
 
 	// <th>IE&nbsp;Phone</th>
-	s = s.replace(/(<th>IE)&nbsp;(Phone<\/th>)/g,'$1 $2');
+	s = s.replace(/(<th>IE)&nbsp;(Phone<\/th>)/gi,'$1 $2');
 	
 	
 	// <p>DOM Level 0. Not part of specification.</p>
@@ -134,7 +138,8 @@ $("#c").click(function() {
 
 
 	// 英文スペルミス修正
-	s = s.replace(/Initial defination/g, 'Initial definition');
+	s = s.replace(/Initial defination/gmi, 'Initial definition');
+	s = s.replace(/(compatibil)(ty)/gmi, '$1i$2');
 
 
 	// <hn id="xxx"> を <hn id="xxx" name="xxx"> に置換。不完全。
