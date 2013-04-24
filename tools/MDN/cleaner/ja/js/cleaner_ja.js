@@ -73,7 +73,10 @@ $("#c").click(function() {
 	s = s.replace(/\"\.E5\.8F\.82\.E7\.85\.A7\"/g, '"See_also"'); //参照
 	s = s.replace(/\"\.E5\.8F\.82\.E8\.80\.83\"/g, '"See_also"'); //参考
 	s = s.replace(/\"\.E5\.8F\.82\.E8\.80\.83\.E6\.83\.85\.E5\.A0\.B1\"/g, '"See_also"'); // 参考情報
-	s = s.replace(/\"\.E9\.96\.A2\.E9\.80\.A3\.E6\.83\.85\.E5\.A0\.B1\"/g, '"See_also"'); // 関連情報	
+	s = s.replace(/\"\.E9\.96\.A2\.E9\.80\.A3\.E6\.83\.85\.E5\.A0\.B1\"/g, '"See_also"'); // 関連情報
+
+	s = s.replace(/\"\.E3\.82\.BB\.E3\.82\.AD\.E3\.83\.A5\.E3\.83\.AA\.E3\.83\.86\.E3\.82\.A3\"/g, '"Security"'); // セキュリティ
+
 	
 	
 	// 不要になったクラス (eval, deki-transform)
