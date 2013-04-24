@@ -57,6 +57,7 @@ $("#c").click(function() {
 	// id, name (ja)
 	s = s.replace(/\"\.E6\.A6\.82\.E8\.A6\.81\"/g, '"Summary"'); // 概要
 	s = s.replace(/\"\.E8\.AA\.AC\.E6\.98\.8E\"/g, '"Description"'); // 説明
+	s = s.replace(/\"\.E6\.A7\.8B\.E6\.96\.87\"/g, '"Syntax"'); // 構文
 
 	s = s.replace(/\"\.E3\.83\.96\.E3\.83\.A9\.E3\.82\.A6\.E3\.82\.B6\.E4\.BA\.92\.E6\.8F\.9B\.E6\.80\.A7\"/g, '"Browser_compatibility"'); // ブラウザ互換性
 	s = s.replace(/\"\.E3\.83\.96\.E3\.83\.A9\.E3\.82\.A6\.E3\.82\.B6\.E3\.81\.AE\.E4\.BA\.92\.E6\.8F\.9B\.E6\.80\.A7\"/g, '"Browser_compatibility"'); //ブラウザの互換性
