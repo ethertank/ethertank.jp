@@ -168,8 +168,9 @@ $("#c").click(function() {
 			"Documentation" : "ドキュメンテーション",
 			"Example" : "例",
 			"Examples" : "例",
-			"Google Chrome notes": "Google Chrome に関する注記",
 			"Gecko-specific notes": "Gecko 固有の注意事項",
+			"General info" : "一般情報",
+			"Google Chrome notes" : "Google Chrome に関する注記",
 			"Introduction": "イントロダクション",
 			"Internet Explorer Notes": "Internet Explorer に関する注記",
 			"Method" : "メソッド",
@@ -187,6 +188,7 @@ $("#c").click(function() {
 			"Properties" : "プロパティ",
 			"Return value" : "戻り値",
 			"Returns" : "戻り値",
+			"Related Events" : "関連イベント",
 			"Related Topics" : "関連トピック",
 			"Selectors": "セレクタ",
 			"Summary" : "概要",
@@ -237,6 +239,7 @@ $("#c").click(function() {
 			"implemented in" : "実装されたバージョン",
 			"meaning" : "意味",
 			"name": "名称",
+			"property" : "プロパティ",
 			"return": "戻り値",
 			"shared module" : "共有モジュール",
 			"specification": "仕様書",
@@ -263,7 +266,7 @@ $("#c").click(function() {
 
 
 	// 訳語統一
-	s = s.replace(/(ブラウザ)ー/gm, '$1'); // ※公式が「ブラウザ」。訳語決定会の残骸が邪魔…。 http://www.mozilla.jp/firefox/
+	s = s.replace(/(ブラウザ)ー/gm, '$1'); // ※公式が「ブラウザ」。旧訳語決定会よりこれを優先する。 http://www.mozilla.jp/firefox/
 	s = s.replace(/(インタ)(?:ー*)(フ[ェァ])(?:ー|イ)(ス)/gm, '$1フェー$3');
 	s = s.replace(/(ハード|ソフト)ウエア/gm, '$1ウェア');
 	s = s.replace(/(コミュニティ|タイポグラフィ|アクセシビリティ|ユーザビリティ|セキュリティ|ユーザ|プロパティ|データ)ー/gm, '$1');
