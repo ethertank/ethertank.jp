@@ -24,6 +24,7 @@ $("#c").click(function() {
 	s = s.replace(/Core_JavaScript_1\.5_/g, 'JavaScript/');    
 	s = s.replace(/Special:Tags\?tag=(.*?)(?:&|&amp;)language=en?/gi, 'en-US/docs/tag/$1');
 	s = s.replace(/XUL_School/g, 'XUL\/School_tutorial');    
+	s = s.replace(/Canvas_tutorial/g, 'HTML\/Canvas\/Tutorial');    
 
 
 	// anchor
