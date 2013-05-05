@@ -170,6 +170,7 @@ $("#c").click(function() {
 			"Constants": "定数",
 			"Constructor": "コンストラクタ",
 			"Description" : "説明",
+			"DOM interfaces" : "DOM インタフェース",
 			"Documentation" : "ドキュメンテーション",
 			"Example" : "例",
 			"Examples" : "例",
