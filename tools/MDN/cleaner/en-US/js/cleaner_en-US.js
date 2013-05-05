@@ -25,6 +25,7 @@ $("#c").click(function() {
 	s = s.replace(/Special:Tags\?tag=(.*?)(?:&|&amp;)language=en?/gi, 'en-US/docs/tag/$1');
 	s = s.replace(/XUL_School/g, 'XUL\/School_tutorial');    
 	s = s.replace(/Canvas_tutorial/g, 'HTML\/Canvas\/Tutorial');    
+	s = s.replace(/Gecko_DOM_Reference/g, 'DOM/DOM_Reference');
 
 
 	// anchor
@@ -40,9 +41,11 @@ $("#c").click(function() {
 
 
 	// title
-	s = s.replace(/Core JavaScript 1\.5/g, 'JavaScript/');
 	s = s.replace(/title=\"\/*en(-US)*\/(docs\/)*/gi, 'title="');
+
+	s = s.replace(/Core JavaScript 1\.5/g, 'JavaScript/');
 	s = s.replace(/title=\"XUL School/g, 'title="XUL\/School_tutorial');    
+	s = s.replace(/title=\"Gecko DOM Reference/g, 'title="DOM/DOM Reference');
 
 
 	// id, name
