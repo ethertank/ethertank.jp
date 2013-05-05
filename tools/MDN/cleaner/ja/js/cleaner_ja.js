@@ -29,8 +29,9 @@ $("#c").click(function() {
 
 	s = s.replace(/Core_JavaScript_1\.5_/g, 'JavaScript/');
 	s = s.replace(/XUL_School/g, 'XUL\/School_tutorial');
-	s = s.replace(/Canvas_tutorial/g, 'HTML\/Canvas\/Tutorial');
+	s = s.replace(/Canvas_tutorial/g, 'HTML/Canvas/Tutorial');
 	s = s.replace(/Gecko_DOM_Reference/g, 'DOM/DOM_Reference');
+	s = s.replace(/docs\/CSS_Reference/gi, 'docs/CSS/CSS_Reference');
 
 
 	// anchor
