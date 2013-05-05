@@ -284,6 +284,7 @@ $("#c").click(function() {
 	s = s.replace(/メッセエージ/gm, 'メッセージ');
 	s = s.replace(/イベンと/gm, 'イベント');
 	s = s.replace(/スプリクト/gm, 'スクリプト');
+	s = s.replace(/していル/gm, 'している');
 
 
 	// 不完全な置換
