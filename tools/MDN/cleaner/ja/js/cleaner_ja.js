@@ -32,6 +32,8 @@ $("#c").click(function() {
 	s = s.replace(/Canvas_tutorial/g, 'HTML/Canvas/Tutorial');
 	s = s.replace(/Gecko_DOM_Reference/g, 'DOM/DOM_Reference');
 	s = s.replace(/docs\/CSS_Reference/gi, 'docs/CSS/CSS_Reference');
+	s = s.replace(/docs\/MathML\//gi, 'docs/Web/MathML/');
+	s = s.replace(/docs\/XUL_Tutorial\//gi, 'docs/XUL/Tutorial/');
 
 
 	// anchor
@@ -170,6 +172,7 @@ $("#c").click(function() {
 			"Constants": "定数",
 			"Constructor": "コンストラクタ",
 			"Description" : "説明",
+			"DOM interface" : "DOM インタフェース",
 			"DOM interfaces" : "DOM インタフェース",
 			"Documentation" : "ドキュメンテーション",
 			"Example" : "例",
