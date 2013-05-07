@@ -180,6 +180,7 @@ $("#c").click(function() {
 			"Gecko-specific notes": "Gecko 固有の注意事項",
 			"General info" : "一般情報",
 			"Google Chrome notes" : "Google Chrome に関する注記",
+			"Interface overview" : "インタフェースの概要",
 			"Introduction": "イントロダクション",
 			"Internet Explorer Notes": "Internet Explorer に関する注記",
 			"Method" : "メソッド",
@@ -233,11 +234,13 @@ $("#c").click(function() {
 
 
 	// th / td の自動翻訳。
+	// "also implement" : "実装インタフェース" は SVG 要素ページ用。但し将来別の文脈で使われるかもしれない。
 	s = s.replace(/(<t(?:h|d)[^>]*>)([^<]+)(<\/t(?:h|d)>)/gi, function() {
 		var a = arguments;
 
 		return (a[1] + ({
 			"action" : "動作",
+			"also implement" : "実装インタフェース",
 			"attribute" : "属性",
 			"availability": "可用性",
 			"basic support" : "基本サポート",
@@ -247,8 +250,10 @@ $("#c").click(function() {
 			"feature" : "機能",
 			"implemented in" : "実装されたバージョン",
 			"meaning" : "意味",
+			"methods" : "メソッド",
 			"name": "名称",
 			"property" : "プロパティ",
+			"properties" : "プロパティ",
 			"return": "戻り値",
 			"shared module" : "共有モジュール",
 			"specification": "仕様書",
