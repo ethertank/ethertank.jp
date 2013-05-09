@@ -177,6 +177,7 @@ $("#c").click(function() {
 			"Documentation" : "ドキュメンテーション",
 			"Example" : "例",
 			"Examples" : "例",
+			"Gecko notes" : "Gecko に関する注記",
 			"Gecko-specific notes": "Gecko 固有の注意事項",
 			"General info" : "一般情報",
 			"Google Chrome notes" : "Google Chrome に関する注記",
@@ -276,7 +277,18 @@ $("#c").click(function() {
 		}[a[2].toLowerCase()] || a[2]) + a[3]);
 	});
 
+
 	s = s.replace(/(<strong>)Note:(<\/strong>)/gmi,'$1注記:$2');
+
+
+	// 確実にタイプミスであるもの。ほぼ全て実際に自分が修正したもの。
+	// 「ーー」等は、例などで敢えて用いられる可能性もあるが、レアケース。正規表現のページなどはチェック済。
+	s = s.replace(/をを/gm, 'を');
+	s = s.replace(/メッセエージ/gm, 'メッセージ');
+	s = s.replace(/イベンと/gm, 'イベント');
+	s = s.replace(/スプリクト/gm, 'スクリプト');
+	s = s.replace(/していル/gm, 'している');
+	s = s.replace(/ー+/gm, 'ー');
 
 
 	// 訳語統一
@@ -288,12 +300,7 @@ $("#c").click(function() {
 	s = s.replace(/ターゲッティング/gm, 'ターゲティング');
 	
 	
-	// 確実にタイプミスであるもの
-	s = s.replace(/をを/gm, 'を');
-	s = s.replace(/メッセエージ/gm, 'メッセージ');
-	s = s.replace(/イベンと/gm, 'イベント');
-	s = s.replace(/スプリクト/gm, 'スクリプト');
-	s = s.replace(/していル/gm, 'している');
+
 
 
 	// 不完全な置換
@@ -333,15 +340,14 @@ $("#s").click(function(){
 	#Syntax の直後の単独の pre に ".eval" しかない場合、".syntaxbox" に。　.twopartsyntaxbox というクラスの使用条件に合致する場合処理を避けなければならない。
 
 	見出しのキャメライズの統一、空 p に変換されてしまうコード末尾の改行コードを削除
-	
-	pre の 古いハイライト用のクラス名を新しいのに変えて、その pre 内部の HTML タグを除去
-	
-	pre 内部の 不要な nbsp を半角スペースに置換
-	
-	見出しの name と id が異なる場合、name の値に統一
-	
-	同一 id を持つ要素が重複して存在する場合、二つ目以降の id に "-2" の様な連番を振った上で内容からの自動変換を防ぐ為に同値の name 属性を設定し重複を回避。正規表現だけで出来る？
 
+	pre の 古いハイライト用のクラス名を新しいのに変えて、その pre 内部の HTML タグを除去
+
+	pre 内部の 不要な nbsp を半角スペースに置換
+
+	見出しの name と id が異なる場合、name の値に統一
+
+	同一 id を持つ要素が重複して存在する場合、二つ目以降の id に "-2" の様な連番を振った上で内容からの自動変換を防ぐ為に同値の name 属性を設定し重複を回避。正規表現だけで出来る？
 */
 
 
