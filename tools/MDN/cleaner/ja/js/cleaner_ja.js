@@ -169,8 +169,9 @@ $("#c").click(function() {
 			"Class overview" : "クラスの概要",
 			"Community" : "コミュニティ",
 			"Compatibility" : "互換性",
-			"Constants": "定数",
-			"Constructor": "コンストラクタ",
+			"Constants" : "定数",
+			"Constructor" : "コンストラクタ",
+			"Constructors" : "コンストラクタ",
 			"Description" : "説明",
 			"DOM interface" : "DOM インタフェース",
 			"DOM interfaces" : "DOM インタフェース",
@@ -181,12 +182,16 @@ $("#c").click(function() {
 			"Gecko-specific notes": "Gecko 固有の注意事項",
 			"General info" : "一般情報",
 			"Google Chrome notes" : "Google Chrome に関する注記",
+			"HTML5 notation" : "HTML5 の記法",
 			"Interface overview" : "インタフェースの概要",
-			"Introduction": "イントロダクション",
-			"Internet Explorer Notes": "Internet Explorer に関する注記",
+			"Introduction" : "イントロダクション",
+			"Internet Explorer Notes" : "Internet Explorer に関する注記",
+			"Event handler" : "イベントハンドラ",
+			"Event handlers" : "イベントハンドラ",
 			"Method" : "メソッド",
 			"Methods" : "メソッド",
 			"Method overview": "メソッドの概要",
+			"More resources" : "その他の情報",
 			"Note" : "注記",
 			"Notes" : "注記",
 			"Object overview" : "オブジェクトの概要",
@@ -214,7 +219,8 @@ $("#c").click(function() {
 			"Usage context" : "使用可能な場所",
 			"Value" : "値",
 			"Values" : "値",
-			"Webkit &amp; Trident (IE)": "Webkit 及び Trident (IE)"
+			"Webkit &amp; Trident (IE)": "Webkit 及び Trident (IE)",
+			"XHTML notation" : "XHTML の記法"
 		}[a[2]] || a[2]) + a[3]);
 	});
 	
@@ -229,7 +235,8 @@ $("#c").click(function() {
 			"listed" : "リスト化",
 			"labelable": "ラベル付け可能",
 			"resettable" : "リセット可能",
-			"form-associated element" : "フォーム関連要素"
+			"form-associated element" : "フォーム関連要素",
+			"view all..." : "すべて見る..."
 		}[a[2].toLowerCase()] || a[2]) + a[3]);
 	});
 
@@ -250,9 +257,11 @@ $("#c").click(function() {
 			"ecmascript edition" : "ECMAScript エディション",
 			"feature" : "機能",
 			"implemented in" : "実装されたバージョン",
+			"initial definition." : "最初期の定義",
 			"meaning" : "意味",
 			"methods" : "メソッド",
 			"name": "名称",
+			"no significant change." : "有意な変更点は無し",
 			"property" : "プロパティ",
 			"properties" : "プロパティ",
 			"return": "戻り値",
@@ -292,6 +301,9 @@ $("#c").click(function() {
 
 
 	// 訳語統一
+	// Mozilla 公式の訳語一覧もあるが、製品内の訳語を想定したものらしく、MDN の文書をこれに統一すると不自然になる。よって参考程度。
+	// 部分適用により「インタフェース」/「フォントフェイス」のような揺れが発生しても良いと考える。
+	// 「プロフィール」/「プロファイル」は文脈により使い分けて可とし、修正は行わず訳者の意図を尊重。
 	s = s.replace(/(ブラウザ)ー/gm, '$1'); // ※公式が「ブラウザ」。旧訳語決定会よりこれを優先する。 http://www.mozilla.jp/firefox/
 	s = s.replace(/(インタ)(?:ー*)(フ[ェァ])(?:ー|イ)(ス)/gm, '$1フェー$3');
 	s = s.replace(/(ハード|ソフト)ウエア/gm, '$1ウェア');
