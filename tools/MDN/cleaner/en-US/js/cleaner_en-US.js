@@ -102,10 +102,6 @@ $("#c").click(function() {
 	//s = s.replace(/<(?:p|div)>\s*((?:\{\{[a-zA-Z_]*\}\}?)*)<\/(?:p|div)>\s*<(?:p|div)>\s*((?:\{\{[a-zA-Z_]*\}\}?)*)\s*/gmi, '<div>$1$2');
 
 
-	// 画像パスの修正（要検証） https://bugzilla.mozilla.org/show_bug.cgi?id=795841
-	s = s.replace(/fileid=\"(.*)\"\s*src=\"File:en\/Media_Gallery\/(.*\"?)/g, 'src="/files/$1/$2');
-
-
 	// 空の div.noinclude を削除
 	s = s.replace(/<div class=\"noinclude\">(?:\s|\b|&nbsp;)*<\/div>?/gm, '');
 
@@ -125,6 +121,10 @@ $("#c").click(function() {
 
 	// 不完全な置換
 	if($("#advanced input")[0].checked === true) {
+		// 画像パスの修正（要検証） https://bugzilla.mozilla.org/show_bug.cgi?id=795841
+		s = s.replace(/fileid=\"(.*)\"\s*src=\"File:en\/Media_Gallery\/(.*\"?)/g, 'src="/files/$1/$2');
+
+		
 		// <span class="comment">xxx</span> を <!-- xxx --> に置換
 		// ※未完成（<span><span class="comment">XYG</span></span> で死ぬ）
 		s = s.replace(/<span class="comment">(.*)<\/span>?/g, '<!-- $1 -->');
