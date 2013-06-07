@@ -33,7 +33,8 @@ $("#c").click(function() {
 	s = s.replace(/Gecko_DOM_Reference/g, 'DOM/DOM_Reference');
 	s = s.replace(/docs\/CSS_Reference/gi, 'docs/CSS/CSS_Reference');
 	s = s.replace(/docs\/MathML\//gi, 'docs/Web/MathML/');
-	s = s.replace(/docs\/XUL_Tutorial\//gi, 'docs/XUL/Tutorial/');
+	s = s.replace(/XUL_Tutorial\//gi, 'XUL/Tutorial/');
+	s = s.replace(/Mozilla_event_reference/gi, 'Web/Reference/Events');
 
 
 	// anchor
@@ -163,6 +164,7 @@ $("#c").click(function() {
 			"Browser compatibility" : "ブラウザ実装状況",
 			"Categories": "カテゴリ",
 			"Class overview" : "クラスの概要",
+			"Chrome notes" : "Google Chrome に関する注記",
 			"Community" : "コミュニティ",
 			"Compatibility" : "互換性",
 			"Constants" : "定数",
@@ -284,6 +286,17 @@ $("#c").click(function() {
 	});
 
 
+	// li の自動翻訳。
+	s = s.replace(/(<li[^>]*>)([^<]+)(<\/li>)/gi, function() {
+		var a = arguments;
+
+		return (a[1] + ({
+			"implemented." : "実装済",
+			"not implemented." : "未実装"
+		}[a[2].toLowerCase()] || a[2]) + a[3]);
+	});
+
+
 	s = s.replace(/(<strong>)Note:(<\/strong>)/gmi,'$1注記:$2');
 
 
@@ -307,7 +320,6 @@ $("#c").click(function() {
 	s = s.replace(/(コミュニティ|タイポグラフィ|アクセシビリティ|ユーザビリティ|セキュリティ|ユーザ|プロパティ|データ)ー/gm, '$1');
 	s = s.replace(/(スマート|ヘッド|フィーチャー)ホン/gm, '$1フォン');
 	s = s.replace(/ターゲッティング/gm, 'ターゲティング');
-	
 	
 
 
